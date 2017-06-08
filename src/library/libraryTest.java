@@ -8,9 +8,10 @@ public class libraryTest {
 	Member member1 = new Member();
 	Member member2 = new Member();
 	Member member3 = new Member();
-	Book book1 = new Book("0001", "56-1", "语文");
-	Book book2 = new Book("0002", "56-2", "数学");
-	Book book3 = new Book("0003", "56-3", "英语");
+	Book book1 = new Book("0001", "ISBN-1-1", "语文");
+	Book book2 = new Book("0001", "ISBN-1-2", "语文");
+	Book book3 = new Book("0002", "ISBN-2-1", "英语");
+	Book book4 = new Book("0002", "ISBN-2-2", "英语");
 	Member loanmember = member1;
 	Book loanbook = book1;
 	ArrayList<Loan> Loans = new ArrayList<Loan>();
@@ -24,25 +25,14 @@ public class libraryTest {
 		member2.setId("02");
 		member2.setName("李四");
 		member3.setId("03");
-		member3.setName("老王");
-		book1.setISBN("1-1");
-		book2.setISBN("1-2");
-		book3.setISBN("1-3");
+		member3.setName("老王");		
 		/*
 		 * 添加借书记录
 		 */
 		Loan loan1 = new Loan();
 		loan1.setMember(loanmember);
-		loan1.setBook(book1);
-		Loans.add(loan1);
-		Loan loan2 = new Loan();
-		loan2.setMember(loanmember);
-		loan2.setBook(book2);
-		Loans.add(loan2);
-		Loan loan3 = new Loan();
-		loan3.setMember(loanmember);
-		loan3.setBook(book3);
-		Loans.add(loan3);
+		loan1.setBook(book3);
+		Loans.add(loan1);				
 		loanmember.setLoans(Loans);
 	}
 
@@ -74,9 +64,7 @@ public class libraryTest {
 	 */
 	public void rule(){
 	LoanOnlyOneSpecification one = new LoanOnlyOneSpecification(loanbook);
-	System.out.println(one.IsSatisfiedBy(loanmember));
-
-		
+	System.out.println(one.IsSatisfiedBy(loanmember));		
 	}
 
 }
