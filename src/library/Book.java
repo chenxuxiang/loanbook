@@ -37,13 +37,6 @@ public class Book {
 
 	public void setLoanTo(Member loanTo) {
 		LoanTo = loanTo;
-	}
-
-	public Book(String id, String iSBN, String title ) {
-		super();
-		Id = id;
-		ISBN = iSBN;
-		Title = title;
-	}
+	}	
 
 }
